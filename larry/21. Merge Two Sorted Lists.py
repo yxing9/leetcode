@@ -3,6 +3,40 @@
 # https://leetcode.com/problems/merge-two-sorted-lists/
 
 
+
+# March, 2022
+# Larry, https://www.youtube.com/watch?v=esq6KRlBXN8
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        newHead = ListNode(-1000000)
+        current = newHead
+        
+        while list1 is not None and list2 is not None:
+            if list1.val < list2.val:
+                current.next = list1
+                current = current.next
+                list1 = list1.next
+            else:
+                current.next = list2
+                current = current.next
+                list2 = list2.next
+                
+        while list1 is not None:
+            current.next = list1
+            current = current.next
+            list1 = list1.next
+            
+        while list2 is not None:
+            current.next = list2
+            current = current.next
+            list2 = list2.next
+            
+        return newHead.next
+# 03/07/2022 15:03
+
+# -----------------------------
+
+# 7/18/2021
 # Recursion
 # Definition for singly-linked list.
 # class ListNode:
