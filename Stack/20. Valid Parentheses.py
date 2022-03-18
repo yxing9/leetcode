@@ -3,6 +3,32 @@
 # https://leetcode.com/problems/valid-parentheses/
 # string, stack
 
+
+# Larry, https://www.youtube.com/watch?v=X9jT1zDeS3I
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        matching = {
+            ")": "(",
+            "]": "[",
+            "}": "{"
+        }
+        
+        for p in s:
+            if p in "([{":
+                stack.append(p)
+                continue
+            else:
+                if len(stack) == 0 or stack[-1] != matching[p]:
+                    return False
+                stack.pop()
+                
+        return len(stack) == 0
+# 03/13/2022 18:59
+
+# --------------------------
+
+# August 7, 2021
 '''
 
 stack:
