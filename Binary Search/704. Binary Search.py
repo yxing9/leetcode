@@ -1,6 +1,33 @@
 # 704. Binary Search
 # Easy
 
+
+# Larry, https://www.youtube.com/watch?v=PEx7BQN3xjw
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        N = len(nums)
+        
+        left = 0
+        right = N - 1
+        
+        while left < right:
+            mid = (left + right + 1) // 2
+            
+            if nums[mid] > target:
+                right = mid - 1
+            else:
+                left = mid
+        
+        if nums[left] == target:
+            return left
+        return -1
+# 03/26/2022 16:18
+
+
+# -------------
+
+
+# 5/5 - 5/12/2021
 # Thoughts Before Coding
 '''
 This is the first and introductory question in Leetcode's Binary Search chapter.
