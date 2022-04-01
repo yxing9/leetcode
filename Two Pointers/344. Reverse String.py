@@ -2,6 +2,25 @@
 # Easy
 # https://leetcode.com/problems/reverse-string/
 
+
+# March 31, 2022
+# Daily challenge of April 1, 2022
+# Larry, https://www.youtube.com/watch?v=86SYNp1zuls
+class Solution:
+    def reverseString(self, s: List[str]) -> None:
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        N = len(s)
+        
+        for i in range(N // 2):
+            j = N - i - 1
+            
+            s[i], s[j] = s[j], s[i]
+# 03/31/2022 21:42
+# A very smart way to use two pointers.
+
+
 #----------
 
 # Two Pointers 08/01/2021
