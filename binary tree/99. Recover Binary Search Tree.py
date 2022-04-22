@@ -2,6 +2,51 @@
 # Medium
 
 
+# Larry, https://www.youtube.com/watch?v=gK-6V_joIro
+class Solution:
+    def recoverTree(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        """
+           13
+          / \
+        10   20
+        /\   / \
+       1 15 12 25
+            /\
+           14 16 
+        """
+        previousNode = None
+        arr = []
+        
+        # Add Morris Traversal
+        # linear time, linear space
+        def inorder(node):
+            if node is None:
+                return
+            
+            inorder(node.left)
+            
+            nonlocal previousNode
+            if previousNode is not None and previousNode.val > node.val:
+                if len(arr) == 0:
+                    arr.append(previousNode)
+                if len(arr) < 2:
+                    arr.append(node)
+                else:
+                    arr[1] = node
+            previousNode = node
+            inorder(node.right)
+            
+        inorder(root)
+        
+        assert(len(arr) == 2)
+        arr[0].val, arr[1].val = arr[1].val, arr[0].val
+# 04/19/2022 17:41
+
+
+
 '''
 
 exactly two nodes
